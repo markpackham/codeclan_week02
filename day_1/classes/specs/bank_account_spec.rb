@@ -26,12 +26,22 @@ class TestBankAccount < MiniTest::Test
   end
 
   def test_set_balance
-    @bank_account.balance =3000
+    @bank_account.balance = 3000
     assert_equal(3000, @bank_account.balance)
   end
 
   def test_set_type
     @bank_account.type = "personal"
     assert_equal("personal", @bank_account.type)
+  end
+
+  def test_pay_into_account
+    @bank_account.pay_in(1000)
+    assert_equal(2000, @bank_account.balance)
+  end
+
+  def test_pay_monthly_fee
+    @bank_account.pay_monthly_fee(50)
+    assert_equal(950, @bank_account.balance)
   end
 end

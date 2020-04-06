@@ -38,4 +38,12 @@ class BankAccount
   #     @type = type
   #   end
 
+def pay_in(amount)
+    @balance += amount
+end
+
+def pay_monthly_fee(monthly_fee)
+    @balance -= monthly_fee
+end
+
 end
