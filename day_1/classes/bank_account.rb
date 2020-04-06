@@ -43,10 +43,13 @@ class BankAccount
   end
 
   def pay_monthly_fee()
-    if (@type == "personal")
-      @balance -= 10
-    else
-      @balance -= 50
-    end
+    # if (@type == "personal")
+    #   @balance -= 10
+    # else
+    #   @balance -= 50
+    # end
+
+    @balance -= 10 if @type == "personal"
+    @balance -= 50 if @type == "business"
   end
 end
