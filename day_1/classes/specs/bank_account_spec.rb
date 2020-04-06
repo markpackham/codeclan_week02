@@ -40,8 +40,14 @@ class TestBankAccount < MiniTest::Test
     assert_equal(2000, @bank_account.balance)
   end
 
-  def test_pay_monthly_fee
+  def test_pay_monthly__business
     @bank_account.pay_monthly_fee()
     assert_equal(950, @bank_account.balance)
+  end
+
+  def test_monthly_fee__personal
+    @perosnal_bank_account = BankAccount.new("Bob", 45, "personal")
+    @perosnal_bank_account.pay_monthly_fee()
+    assert_equal(35, @perosnal_bank_account.balance)
   end
 end
