@@ -41,7 +41,7 @@ class TestBankAccount < MiniTest::Test
   end
 
   def test_pay_monthly_fee
-    @bank_account.pay_monthly_fee(50)
+    @bank_account.pay_monthly_fee()
     assert_equal(950, @bank_account.balance)
   end
 end
