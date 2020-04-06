@@ -21,17 +21,17 @@ class TestBankAccount < MiniTest::Test
   end
 
   def test_set_account_name
-    @bank_account.set_holder_name("Eugene")
+    @bank_account.holder_name = "Eugene"
     assert_equal("Eugene", @bank_account.holder_name)
   end
 
   def test_set_balance
-    @bank_account.set_balance(3000)
+    @bank_account.balance =3000
     assert_equal(3000, @bank_account.balance)
   end
 
   def test_set_type
-    @bank_account.set_type("personal")
+    @bank_account.type = "personal"
     assert_equal("personal", @bank_account.type)
   end
 end
