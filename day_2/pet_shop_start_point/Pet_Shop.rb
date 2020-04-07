@@ -1,15 +1,11 @@
 class PetShop
-  attr_reader :name, :pets, :total_cash
+  attr_reader :name, :total_cash, :pets_sold
 
   def initialize(name, pets, total_cash)
     @name = name
     @pets = pets
     @total_cash = total_cash
     @pets_sold = 0
-  end
-
-  def pets_sold()
-    return @pets_sold
   end
 
   def stock_count()
