@@ -42,6 +42,7 @@ class PetShop
     customer.add_pet(pet)
     remove_pet(pet)
     increase_pets_sold()
+    customer.pay_for_pet(pet.price)
     increase_total_cash(pet.price)
   end
 end

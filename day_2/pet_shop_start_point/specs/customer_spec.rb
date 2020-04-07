@@ -34,4 +34,9 @@ class CustomerTest < MiniTest::Test
     @customer.add_pet(@new_pet)
     assert_equal(1500,@customer.get_total_value_of_pets())
   end
+
+  def test_can_pay_for_pet()
+    @customer.pay_for_pet(@new_pet.price)
+    assert_equal(500,@customer.cash)
+  end
 end

@@ -64,5 +64,6 @@ class PetShopTest < MiniTest::Test
     assert_equal(1, @pet_shop.stock_count())
     assert_equal(1, customer.pet_count())
     assert_equal(1, @pet_shop.pets_sold())
+    assert_equal(500,customer.cash())
   end
 end
