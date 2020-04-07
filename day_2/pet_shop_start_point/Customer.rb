@@ -12,6 +12,14 @@ class Customer
   end
 
   def add_pet(new_pet)
-        @pets << new_pet
+    @pets << new_pet
+  end
+
+  def get_total_value_of_pets()
+        total = 0
+        for pet in @pets
+            total += pet.price
+        end
+        return total
   end
 end

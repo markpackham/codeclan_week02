@@ -27,4 +27,11 @@ class CustomerTest < MiniTest::Test
     @customer.add_pet(@new_pet)
     assert_equal(1, @customer.pet_count())
   end
+
+  def test_can_get_total_pet_cost
+    @customer.add_pet(@new_pet)
+    @customer.add_pet(@new_pet)
+    @customer.add_pet(@new_pet)
+    assert_equal(1500,@customer.get_total_value_of_pets())
+  end
 end
