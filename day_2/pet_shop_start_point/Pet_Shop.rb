@@ -16,15 +16,24 @@ class PetShop
     @pets_sold += 1
   end
 
-  def increase_total_cash(cash)
-    @total_cash += cash
-  end
-
   def add_pet(pet)
     @pets << pet
   end
 
   def remove_pet(pet)
     @pets.delete(pet)
+  end
+
+  def increase_total_cash(cash)
+    @total_cash += cash
+  end
+
+  def find_pet_by_name(pet_name)
+    for pet in @pets
+      if (pet.name == pet_name)
+        return pet
+      end
+      return nil
+    end
   end
 end

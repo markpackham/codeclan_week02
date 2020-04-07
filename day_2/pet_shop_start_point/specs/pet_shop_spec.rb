@@ -35,20 +35,24 @@ class PetShopTest < MiniTest::Test
     @pet_shop.increase_pets_sold()
     assert_equal(1, @pet_shop.pets_sold)
   end
-  
+
   def test_can_increase_total_cash()
     @pet_shop.increase_total_cash(500)
     assert_equal(1500, @pet_shop.total_cash)
   end
-  
+
   def test_can_add_pet_to_stock()
     @pet_shop.add_pet(@new_pet)
     assert_equal(3, @pet_shop.stock_count())
   end
-  
+
   def test_can_remove_pet_from_stock()
     @pet_shop.remove_pet(@pet1)
     assert_equal(1, @pet_shop.stock_count())
   end
 
+  def test_can_find_pet_by_name()
+    pet = @pet_shop.find_pet_by_name("Sir Percy")
+    assert_equal("Sir Percy", pet.name)
+  end
 end
