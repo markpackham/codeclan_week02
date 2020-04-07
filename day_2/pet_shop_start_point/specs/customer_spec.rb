@@ -18,4 +18,8 @@ class CustomerTest < MiniTest::Test
   def test_customer_has_cash()
     assert_equal(1000, @customer.cash)
   end
+
+  def test_customer_pets_start_empty()
+    assert_equal(0, @customer.pet_count())
+  end
 end
