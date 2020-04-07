@@ -10,4 +10,8 @@ class Customer
   def pet_count()
     return @pets.count()
   end
+
+  def add_pet(new_pet)
+        @pets << new_pet
+  end
 end

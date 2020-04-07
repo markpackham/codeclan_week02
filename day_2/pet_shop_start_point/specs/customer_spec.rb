@@ -8,7 +8,7 @@ require_relative("../pet")
 class CustomerTest < MiniTest::Test
   def setup
     @new_pet = Pet.new("Blue", :cat, "British Shorthair", 500)
-    @customer = Customer.new("Jack Jarvis",1000)
+    @customer = Customer.new("Jack Jarvis", 1000)
   end
 
   def test_customer_has_name()
@@ -21,5 +21,10 @@ class CustomerTest < MiniTest::Test
 
   def test_customer_pets_start_empty()
     assert_equal(0, @customer.pet_count())
+  end
+
+  def test_can_add_pet_to_customer()
+    @customer.add_pet(@new_pet)
+    assert_equal(1, @customer.pet_count())
   end
 end
