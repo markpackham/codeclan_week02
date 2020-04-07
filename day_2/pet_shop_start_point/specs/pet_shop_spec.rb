@@ -4,6 +4,7 @@ Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
 require_relative("../pet")
 require_relative("../pet_shop")
+require_relative("../customer")
 
 class PetShopTest < MiniTest::Test
   def setup()
@@ -54,5 +55,14 @@ class PetShopTest < MiniTest::Test
   def test_can_find_pet_by_name()
     pet = @pet_shop.find_pet_by_name("Sir Percy")
     assert_equal("Sir Percy", pet.name)
+  end
+
+  def test_can_sell_pet_to_customer()
+    customer = Customer.new("Jack Jarvis", 1000)
+    @pet_shop.sell_pet_to_customer("Sir Percy", customer)
+    assert_equal(1500, @pet_shop.total_cash())
+    assert_equal(1, @pet_shop.stock_count())
+    assert_equal(1, customer.pet_count())
+    assert_equal(1, @pet_shop.pets_sold())
   end
 end
