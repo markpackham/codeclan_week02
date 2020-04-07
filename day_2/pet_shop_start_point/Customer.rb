@@ -1,5 +1,5 @@
 class Customer
-  attr_reader :name, :cash
+  attr_reader :name, :total_cash
 
   def initialize(name, cash)
     @name = name
@@ -22,4 +22,6 @@ class Customer
     end
     return total
   end
+
+
 end
