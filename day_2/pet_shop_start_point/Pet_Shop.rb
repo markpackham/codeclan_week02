@@ -36,4 +36,12 @@ class PetShop
       return nil
     end
   end
+
+  def sell_pet_to_customer(pet_name, customer)
+    pet = find_pet_by_name(pet_name)
+    customer.add_pet(pet)
+    remove_pet(pet)
+    increase_pets_sold()
+    increase_total_cash(pet.price)
+  end
 end
