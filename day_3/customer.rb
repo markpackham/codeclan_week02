@@ -10,4 +10,9 @@ class Customer
       @wallet -= amount
     end
 
+    def buy_drink(pub,drink)
+      pub.till += drink
+      @wallet -= drink
+    end
+
 end
