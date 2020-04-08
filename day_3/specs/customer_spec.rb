@@ -8,12 +8,12 @@ require_relative("../drink")
 
 class CustomerTest < MiniTest::Test
   def setup()
-    @customer = Customer.new("Bob", 50,90)
-    @customer2 = Customer.new("Hobo", 0,1000)
-    @customer3 = Customer.new("Kiddo", 500,10)
+    @customer = Customer.new("Bob", 50, 90)
+    @customer2 = Customer.new("Hobo", 0, 1000)
+    @customer3 = Customer.new("Kiddo", 500, 10)
     @pub = Pub.new("Friendly Arm Inn", 1000, [])
-    @drink = Drink.new("Vodka", 10)
-    @drink2 = Drink.new("Free Grog", 0)
+    @drink = Drink.new("Vodka", 10,5)
+    @drink2 = Drink.new("Free Grog", 0,1)
   end
 
   def test_get_name
@@ -32,6 +32,10 @@ class CustomerTest < MiniTest::Test
     assert_equal(0, @customer2.wallet)
   end
 
+  def test_get_drunkenness
+    assert_equal(0, @customer2.drunkenness)
+  end
+
   def test_decrease_wallet_amount()
     assert_equal(40, @customer.decrease_wallet_amount(10))
   end
@@ -43,14 +47,12 @@ class CustomerTest < MiniTest::Test
     assert_equal(40, @customer.wallet)
   end
 
-  def test_buy_drink__to_young
+  def test_buy_drink__too_young
     drink = @drink.price
-    assert_equal("You are too young to buy drinks",@customer3.buy_drink(@pub, drink))
+    assert_equal("You are too young to buy drinks", @customer3.buy_drink(@pub, drink))
   end
-
 
   def test_buy_drink__wrong_price
     assert_nil(@customer.buy_drink(@pub, -100))
   end
-
 end
