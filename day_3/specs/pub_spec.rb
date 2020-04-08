@@ -57,6 +57,6 @@ class PubTest < MiniTest::Test
     @pub.add_drinks(@drink2)
     @pub.add_drinks(@drink3)
     @pub.add_drinks_to_stock(@pub.drinks)
-    assert_equal(4,@pub.stock.length)
+    assert_equal(3, @pub.stock.length)
   end
 end
