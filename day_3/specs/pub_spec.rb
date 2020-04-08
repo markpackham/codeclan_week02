@@ -30,7 +30,7 @@ class PubTest < MiniTest::Test
   end
 
   def test_get_stock
-    assert_equal({}, @pub.stock)
+    assert_equal([], @pub.stock)
   end
 
   def test_increase_till_amount()
@@ -50,5 +50,13 @@ class PubTest < MiniTest::Test
   def test_serve_customer__false
     @customer8.drunkenness = 1000
     assert_equal(false, @pub.serve_customer(@customer8.drunkenness))
+  end
+
+  def test_add_drinks_to_stock
+    @pub.add_drinks(@drink)
+    @pub.add_drinks(@drink2)
+    @pub.add_drinks(@drink3)
+    @pub.add_drinks_to_stock(@pub.drinks)
+    assert_equal(4,@pub.stock.length)
   end
 end

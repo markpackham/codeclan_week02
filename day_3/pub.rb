@@ -5,7 +5,7 @@ class Pub
     @name = name
     @till = till
     @drinks = []
-    @stock = {}
+    @stock = []
   end
 
   def increase_till_amount(amount)
@@ -23,4 +23,11 @@ class Pub
       return false
     end
   end
+
+  def add_drinks_to_stock(drinks)
+    for drin in drinks
+      @stock << drin
+    end
+  end
+
 end
