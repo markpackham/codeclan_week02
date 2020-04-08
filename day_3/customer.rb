@@ -1,9 +1,10 @@
 class Customer
-    attr_reader :name, :wallet
+  attr_accessor :name, :wallet, :age
 
-    def initialize(name, wallet)
+    def initialize(name, wallet,age)
       @name = name
       @wallet = wallet
+      @age = age
     end
 
     def decrease_wallet_amount(amount)
@@ -11,6 +12,7 @@ class Customer
     end
 
     def buy_drink(pub,drink)
+      return "You are too young to buy drinks" if(@age < 18)
       if(drink > -1 && pub.till > -1)
         pub.till += drink
         @wallet -= drink
