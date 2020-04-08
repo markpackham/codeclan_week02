@@ -64,4 +64,16 @@ class CustomerTest < MiniTest::Test
     assert_equal(10, @customer.drunkenness)
   end
 
+
+  def test_too_drunk_to_buy()
+    drink = @drink.alcohol_level()
+    @customer.increase_drunkenness(drink)
+    @customer.increase_drunkenness(drink)
+    @customer.increase_drunkenness(drink)
+    @customer.increase_drunkenness(drink)
+    @customer.increase_drunkenness(drink)
+    assert_equal("You are too drunk to buy a drink", @customer.buy_drink(@pub, @drink))
+  end
+
+
 end
