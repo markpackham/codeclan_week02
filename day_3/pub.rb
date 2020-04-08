@@ -29,5 +29,4 @@ class Pub
       @stock << drin
     end
   end
-
 end
