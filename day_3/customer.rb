@@ -16,6 +16,7 @@ class Customer
     return "You are too drunk to buy a drink" if (pub.serve_customer(@drunkenness) == false)
 
     return "You are too young to buy drinks" if (@age < 18)
+    
     if (drink > -1 && pub.till > -1)
       pub.till += drink
       @wallet -= drink
