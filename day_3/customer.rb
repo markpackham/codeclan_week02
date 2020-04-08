@@ -26,4 +26,9 @@ class Customer
   def increase_drunkenness(drink)
     @drunkenness += drink
   end
+
+  def decrease_drunkenness(food)
+    @drunkenness -= food
+  end
+
 end

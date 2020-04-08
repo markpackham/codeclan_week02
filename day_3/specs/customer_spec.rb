@@ -5,6 +5,7 @@ Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 require_relative("../customer")
 require_relative("../pub")
 require_relative("../drink")
+require_relative("../food")
 
 class CustomerTest < MiniTest::Test
   def setup()
@@ -12,8 +13,11 @@ class CustomerTest < MiniTest::Test
     @customer2 = Customer.new("Hobo", 0, 1000)
     @customer3 = Customer.new("Kiddo", 500, 10)
     @pub = Pub.new("Friendly Arm Inn", 1000, [])
-    @drink = Drink.new("Vodka", 10,5)
-    @drink2 = Drink.new("Free Grog", 0,1)
+    @drink = Drink.new("Vodka", 10, 5)
+    @drink2 = Drink.new("Free Grog", 0, 1)
+    @food = Food.new("Burger", 8, 3)
+    @food2 = Food.new("Spam", 15, 100000)
+    @food3 = Food.new("Tofu", 5, 0)
   end
 
   def test_get_name
@@ -56,14 +60,12 @@ class CustomerTest < MiniTest::Test
     assert_nil(@customer.buy_drink(@pub, -100))
   end
 
-
   def test_increase_drunkenness()
     drink = @drink.alcohol_level()
     @customer.increase_drunkenness(drink)
     @customer.increase_drunkenness(drink)
     assert_equal(10, @customer.drunkenness)
   end
-
 
   def test_too_drunk_to_buy()
     drink = @drink.alcohol_level()
@@ -73,6 +75,32 @@ class CustomerTest < MiniTest::Test
     @customer.increase_drunkenness(drink)
     @customer.increase_drunkenness(drink)
     assert_equal("You are too drunk to buy a drink", @customer.buy_drink(@pub, @drink))
+  end
+
+
+
+  def test_decrease_drunkenness()
+    drink = @drink.alcohol_level()
+    @customer.increase_drunkenness(drink)
+    @customer.increase_drunkenness(drink)
+    @customer.decrease_drunkenness(@food.rejuvenation_level)
+    assert_equal(7,@customer.drunkenness)
+  end
+
+  def test_decrease_drunkenness__no_change()
+    drink = @drink.alcohol_level()
+    @customer.increase_drunkenness(drink)
+    @customer.increase_drunkenness(drink)
+    @customer.decrease_drunkenness(@food3.rejuvenation_level)
+    assert_equal(10,@customer.drunkenness)
+  end
+
+  def test_decrease_drunkenness__englightenment()
+    drink = @drink.alcohol_level()
+    @customer.increase_drunkenness(drink)
+    @customer.increase_drunkenness(drink)
+    @customer.decrease_drunkenness(@food2.rejuvenation_level)
+    assert_equal(-99990,@customer.drunkenness)
   end
 
 
