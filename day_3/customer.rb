@@ -11,8 +11,11 @@ class Customer
     end
 
     def buy_drink(pub,drink)
-      pub.till += drink
-      @wallet -= drink
+      if(drink > -1 && pub.till > -1)
+        pub.till += drink
+        @wallet -= drink
+      end
+      return nil
     end
 
 end
