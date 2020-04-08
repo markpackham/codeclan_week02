@@ -20,4 +20,11 @@ class Customer
     end
     return nil
   end
+
+  def increase_drunkenness(drink)
+    @drunkenness += drink
+  end
+
+
+
 end

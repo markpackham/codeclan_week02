@@ -55,4 +55,13 @@ class CustomerTest < MiniTest::Test
   def test_buy_drink__wrong_price
     assert_nil(@customer.buy_drink(@pub, -100))
   end
+
+
+  def test_increase_drunkenness()
+    drink = @drink.alcohol_level()
+    @customer.increase_drunkenness(drink)
+    @customer.increase_drunkenness(drink)
+    assert_equal(10, @customer.drunkenness)
+  end
+
 end
