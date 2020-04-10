@@ -17,12 +17,12 @@ class StarSystem
 
   def get_largest_planet()
     planet_sizes = @planets.map { |planet| planet.diameter }
-    return @planets.find{|planet| planet.diameter == planet_sizes.max}
+    return @planets.find { |planet| planet.diameter == planet_sizes.max }
   end
 
   def get_smallest_planet()
     planet_sizes = @planets.map { |planet| planet.diameter }
-    return @planets.find{|planet| planet.diameter == planet_sizes.min}
+    return @planets.find { |planet| planet.diameter == planet_sizes.min }
   end
 
   def get_planets_with_no_moons()
@@ -40,15 +40,14 @@ class StarSystem
     return planet_name.length
   end
 
-  def get_total_number_of_moons()
-      moon_amount = 0
-      # for moon in @planets
-      #   moon_amount += moon.number_of_moons
-      # end
-      # return moon_amount
-      # numbers.reduce { |sum, number| sum + number }
-      moon_amount = @planets.reduce { |sum, planet.number_of_moons| sum + planet.number_of_moons }
-  end
-    
+  # def get_total_number_of_moons()
+  #     moon_amount = 0
+  #     # for moon in @planets
+  #     #   moon_amount += moon.number_of_moons
+  #     # end
+  #     # return moon_amount
+  #     # numbers.reduce { |sum, number| sum + number }
+  #     moon_amount = @planets.reduce { |sum, planet.number_of_moons| sum + planet.number_of_moons }
+  # end
 
 end

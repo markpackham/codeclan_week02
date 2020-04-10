@@ -1,11 +1,10 @@
-require('minitest/autorun')
-require('minitest/reporters')
+require("minitest/autorun")
+require("minitest/reporters")
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
-require_relative('../planet')
+require_relative("../planet")
 
 class TestPlanet < Minitest::Test
-
   def setup
     @planet = Planet.new("Earth", 12756, 149.6, 1)
   end
@@ -25,5 +24,4 @@ class TestPlanet < Minitest::Test
   def test_has_number_of_moons
     assert_equal(1, @planet.number_of_moons)
   end
-
 end
